@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robin™ Bot</title>
+
+<style>
+/* ===== BASIC RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background: linear-gradient(135deg, #c084fc, #7c3aed);
+  color:#fff;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:#f3f4f6;
+  font-size:16px;
+  opacity:0.9;
+}
+
+nav ul li a:hover{
+  opacity:1;
+}
+
+/* ===== HERO ===== */
+.main{
+  min-height:calc(100vh - 65px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+
+.hero{
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  border-radius:20px;
+  padding:60px 50px;
+  text-align:center;
+  max-width:700px;
+  width:100%;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* TYPING */
+.typing{
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.cursor{
+  display:inline-block;
+  width:3px;
+  height:32px;
+  background:#fff;
+  margin-left:6px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink{
+  50%{opacity:0;}
+}
+
+/* SUBTEXT */
+.subtitle{
+  font-size:16px;
+  opacity:0.9;
+  margin-bottom:40px;
+}
+
+/* BUTTON */
+.btn-container a{
+  text-decoration:none;
+  background:#fff;
+  color:#7c3aed;
+  padding:15px 36px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:16px;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.btn-container a:hover{
+  transform: translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* ===== COMMANDS SECTION ===== */
+.commands-section{
+  max-width:900px;
+  margin:50px auto;
+  padding:20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  border-radius:20px;
+}
+
+.commands-section h2{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.commands-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:15px;
+  max-height:400px;
+  overflow-y:auto;
+  padding:10px;
+}
+
+.command-card{
+  background: rgba(255,255,255,0.15);
+  padding:15px 20px;
+  border-radius:15px;
+  font-weight:600;
+  font-size:14px;
+  color:#fff;
+  transition:0.3s;
+}
+
+.command-card:hover{
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-3px);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .typing{font-size:24px;}
+  .hero{padding:40px 25px;}
+  .commands-container{grid-template-columns: 1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Robin™</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="/about.html">Terms</a></li>
+    <li><a href="#">Commands</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="main">
+  <div class="hero">
+    <div class="typing">
+      <span id="text"></span><span class="cursor"></span>
+    </div>
+    <div class="subtitle">
+      Powerful • Reliable • Easy Discord Moderation
+    </div>
+    <div class="btn-container">
+      <a href="https://discord.com/oauth2/authorize?client_id=1456320370511581310&permissions=8&integration_type=0&scope=bot">
+        Add to Discord
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- COMMANDS PANEL -->
+<div class="commands-section">
+  <h2>📜 All Commands</h2>
+  <div class="commands-container">
+    <div class="command-card">!help – Show help panel</div>
+    <div class="command-card">!kick @user – Kick a user</div>
+    <div class="command-card">!ban @user – Ban a user</div>
+    <div class="command-card">!timeout @user – Timeout user</div>
+    <div class="command-card">!c &lt;amount&gt; – Clear messages</div>
+    <div class="command-card">!c user @user – Clear messages from user</div>
+    <div class="command-card">!c bot – Clear bot messages</div>
+    <div class="command-card">!verify edit @role – Set verify role</div>
+    <div class="command-card">!addverify – Send verify panel</div>
+    <div class="command-card">!ticket open – Open a ticket</div>
+    <div class="command-card">!ticket close – Close ticket</div>
+    <div class="command-card">!ar add/remove – Auto response</div>
+    <div class="command-card">!ari &lt;trigger&gt; – Auto response image</div>
+    <div class="command-card">!rem &lt;text&gt; &lt;time&gt; &lt;dm/srv&gt; – Set reminder</div>
+    <div class="command-card">!clock – Show live clock</div>
+    <div class="command-card">!time – Show current time</div>
+    <div class="command-card">!sh &lt;topic&gt; – Search YouTube</div>
+    <div class="command-card">!role set @role – Give role</div>
+    <div class="command-card">!dm @user &lt;text&gt; – Send DM</div>
+    <div class="command-card">!rename &lt;new name&gt; – Rename channel</div>
+    <div class="command-card">!mc – Show member count</div>
+    <div class="command-card">!nuke &lt;code&gt; – Server security</div>
+  </div>
+</div>
+
+<!-- TYPING JS -->
+<script>
+const texts = [
+  "I am Robin™",
+  "Your Smart Discord Assistant Bot"
+];
+
+let index = 0;
+let charIndex = 0;
+const speed = 90;
+const delay = 1500;
+const textElement = document.getElementById("text");
+
+function typeEffect(){
+  if(charIndex < texts[index].length){
+    textElement.textContent += texts[index].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeEffect, speed);
+  } else {
+    setTimeout(eraseEffect, delay);
+  }
+}
+
+function eraseEffect(){
+  if(charIndex > 0){
+    textElement.textContent = texts[index].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(eraseEffect, speed / 2);
+  } else {
+    index = (index + 1) % texts.length;
+    setTimeout(typeEffect, speed);
+  }
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
